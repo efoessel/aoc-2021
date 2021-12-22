@@ -13,7 +13,6 @@ function parseInput(file: string) {
     const insertionRulesMap: InsertionRulesMap = {};
     insertionRules.forEach(line => {
         const [_, pair, insert] = /(\w\w) -> (\w)/.exec(line);
-
         insertionRulesMap[pair] = insert;
     });
 
@@ -56,7 +55,6 @@ function polymerize(input: Polymer, rules: InsertionRulesMap) {
         } else {
             add(pair.charAt(0)+rules[pair], count);
             add(rules[pair]+pair.charAt(1), count);
-            
         }
     });
 
@@ -79,8 +77,8 @@ function getScore(polymer: Polymer) {
         [polymer.first]: 1,
         [polymer.last]: 1,
     });
-    const sortedCharCounts = Object.entries(charCountsDoubled).sort((a, b) => b[1] - a[1]);
-    return (sortedCharCounts[0][1] - sortedCharCounts[sortedCharCounts.length - 1][1]) / 2;
+    const sortedCharCountsDoubled = Object.entries(charCountsDoubled).sort((a, b) => b[1] - a[1]);
+    return (sortedCharCountsDoubled[0][1] - sortedCharCountsDoubled[sortedCharCountsDoubled.length - 1][1]) / 2;
 }
 
 function getSize(polymer: Polymer) {

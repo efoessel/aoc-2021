@@ -13,8 +13,8 @@ export type DirectionsWithDiags = Directions|'up-left'|'down-left'|'down-right'|
 
 export class Grid<T> {
     private cells: Cell<T>[][] = [];
-    private readonly height: number
-    private readonly width: number
+    public readonly height: number
+    public readonly width: number
 
     constructor(
         private input: T[][],
