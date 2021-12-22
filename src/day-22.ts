@@ -90,7 +90,7 @@ class CubeWithHoles {
     }
 
     getVolume() {
-        return this._getVolume();
+        return this.clone()._getVolume();
     }
 
     getHolesVolume() {
